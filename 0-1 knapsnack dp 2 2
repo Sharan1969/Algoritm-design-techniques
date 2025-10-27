@@ -1,0 +1,40 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main() {
+	int n,amt;
+	cin>>n>>amt;
+	int weight[n],profit[n];
+	for(int i=0;i<n;i++){
+	    cin>>weight[i];
+	}
+	for(int i=0;i<n;i++){
+	    cin>>profit[i];
+	}
+	int max=weight[0];
+	int mxpr=profit[0];
+	for(int i=0;i<n;i++){
+	    if(max<weight[i]){
+	        max=weight[i];
+	        mxpr=profit[i];
+	    }
+	}
+	int sum=0;
+	sum+=mxpr;
+	amt-=max;
+	for(int i=0;i<n;i++){
+	    if(amt>=weight[i] && max!=weight[i]){
+	        amt=weight[i];
+	        sum+=profit[i];
+	    }
+	}
+	cout<<sum;
+}
+
+
+// Input 1 :
+// 2 10
+// 5 5
+// 50 60
+
+// Output 1 :
+// 110.00
