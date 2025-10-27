@@ -1,0 +1,43 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int subset(vector<int>&arr,int target,int n){
+    int count=0;
+    int totalsub=1<<n;
+    for(int i=0;i<totalsub;i++){
+        int sum=0;
+        for(int j=0;j<n;j++){
+            if(i & (1<<j)){
+            sum+=arr[j];
+            }
+        }
+        if(sum==target){
+            count++;
+        }
+    }
+    return count;
+}
+
+int main() {
+    int n;
+    cin>>n;
+    vector<int>arr(n);
+    for(int i=0;i<n;i++){
+        cin>>arr[i];
+    }
+    int target;
+    cin>>target;
+    int result=subset(arr,target,n);
+    cout<<result<<endl;
+    cout<<(result*2)+10;
+}
+
+
+// Input 1 :
+// 6
+// 1 2 3 4 5 6
+// 7
+
+// Output 1 :
+// 4
+// 18
