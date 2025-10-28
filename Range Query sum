@@ -1,0 +1,43 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int N,Q;
+    cin>>N>>Q;
+    int arr[N];
+    for(int i=0;i<N;i++){
+        cin>>arr[i];
+    }
+    for(int q=0;q<Q;q++){
+        char type;
+        cin>>type;
+        if(type=='S'){
+            int l,r;
+            cin>>l>>r;
+            int sum=0;
+            for(int i=l;i<=r;i++){
+               sum+=arr[i];
+            }
+            cout<<sum<<endl;
+        }
+        else if(type=='U'){
+            int index,value;
+            cin>>index>>value;
+            arr[index]=value;
+        }
+    }
+}
+
+// Input 1 :
+// 6 5
+// 10 -5 20 15 -10 5
+// S 0 2
+// U 1 7
+// S 0 2
+// S 3 5
+// S 0 5
+
+// Output 1 :
+// 25
+// 37
+// 10
+// 47
