@@ -1,0 +1,43 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int N,Q;
+    cin>>N>>Q;
+    int arr[N];
+    for(int i=0;i<N;i++){
+        cin>>arr[i];
+    }
+    for(int q=0;q<Q;q++){
+        char type;
+        cin>>type;
+        if(type=='Q'){
+            int l,r;
+            cin>>l>>r;
+            int min=arr[l];
+            for(int i=l;i<=r;i++){
+                if(min>arr[i]){
+                    min=arr[i];
+                }
+            }
+            cout<<min<<endl;
+        }
+        else if(type=='U'){
+            int index,value;
+            cin>>index>>value;
+            arr[index]=value;
+        }
+    }
+}
+
+// Input 1 :
+// 5 4
+// 2 6 1 4 5
+// Q 1 3
+// U 2 8
+// Q 1 3
+// Q 0 4
+
+// Output 1 :
+// 1
+// 4
+// 2
